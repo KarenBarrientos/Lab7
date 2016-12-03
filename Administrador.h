@@ -10,7 +10,7 @@ class Administrador: public Usuarios{
 	private:
 		string Fecha;
 	public:
-		Administrador(string,string,string,string);
+		Administrador(string,string,string,string,string);
 		virtual ~Administrador();
 		virtual string toString();
 };

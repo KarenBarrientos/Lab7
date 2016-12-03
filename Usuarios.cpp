@@ -5,7 +5,8 @@
 using std::string;
 using std::stringstream;
 
-Usuarios::Usuarios(string Nom_Usuario,string Correo,string Password):Nom_Usuario(Nom_Usuario),Correo(Correo), Password(Password){
+Usuarios::Usuarios(string Nom_Usuario,string Correo,string Password,string Tipo):Nom_Usuario(Nom_Usuario),Correo(Correo), Password(Password),Tipo(Tipo){
+
 }
 
 string Usuarios::getNom_Usuario(){
@@ -18,6 +19,10 @@ string Usuarios::getCorreo(){
 
 string Usuarios::getPassword(){
 	return Password;
+}
+
+string Usuarios::getTipo(){
+	return Tipo;
 }
 
 Usuarios::~Usuarios(){

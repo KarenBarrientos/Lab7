@@ -6,7 +6,7 @@
 using std::string;
 using std::stringstream;
 
-Intern::Intern(string Nom_Usuario,string Correo,string Password,int Num_Dias):Usuarios(Nom_Usuario,Correo,Password){
+Intern::Intern(string Nom_Usuario,string Correo,string Password,string Tipo,int Num_Dias):Usuarios(Nom_Usuario,Correo,Password,Tipo){
   this->Num_Dias = Num_Dias;
 }
 Intern::~Intern(){

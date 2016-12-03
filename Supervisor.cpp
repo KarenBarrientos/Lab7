@@ -6,7 +6,7 @@
 using std::string;
 using std::stringstream;
 
-Supervisor::Supervisor(string Nom_Usuario,string Correo,string Password,int Cont):Usuarios(Nom_Usuario,Correo,Password){
+Supervisor::Supervisor(string Nom_Usuario,string Correo,string Password,string Tipo,int Cont):Usuarios(Nom_Usuario,Correo,Password,Tipo){
   this->Cont = Cont;
 }
 Supervisor::~Supervisor(){

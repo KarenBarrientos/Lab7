@@ -7,7 +7,7 @@ using std::string;
 class Supervisor : public Usuarios{
     int Cont;
   public:
-    Supervisor(string,string,string,int=0);
+    Supervisor(string,string,string,string,int=0);
     virtual ~Supervisor();
     virtual string toString();
 };

@@ -10,7 +10,7 @@ class Manager: public Usuarios{
 	private:
 		double Sueldo;
 	public:
-		Manager(string,string,string,double);
+		Manager(string,string,string,string,double);
 		virtual ~Manager();
 		virtual string toString();
 };

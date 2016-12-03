@@ -6,7 +6,7 @@
 using std::string;
 using std::stringstream;
 
-Administrador::Administrador(string Nom_Usuario,string Correo,string Password,string Fecha):Usuarios(Nom_Usuario,Correo,Password){
+Administrador::Administrador(string Nom_Usuario,string Correo,string Password,string Tipo,string Fecha):Usuarios(Nom_Usuario,Correo,Password,Tipo){
   this->Fecha = Fecha;
 }
 Administrador::~Administrador(){

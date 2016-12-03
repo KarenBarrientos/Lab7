@@ -10,7 +10,7 @@ class Intern: public Usuarios{
 	private:
 		int Num_Dias;
 	public:
-		Intern(string,string,string,int);
+		Intern(string,string,string,string,int);
 		virtual ~Intern();
 		virtual string toString();
 };
