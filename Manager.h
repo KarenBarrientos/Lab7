@@ -11,6 +11,7 @@ class Manager: public Usuarios{
 		double Sueldo;
 	public:
 		Manager(string,string,string,string,double);
+		double getSueldo();
 		virtual ~Manager();
 		virtual string toString();
 };

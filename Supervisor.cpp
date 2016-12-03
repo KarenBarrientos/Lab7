@@ -9,7 +9,12 @@ using std::stringstream;
 Supervisor::Supervisor(string Nom_Usuario,string Correo,string Password,string Tipo,int Cont):Usuarios(Nom_Usuario,Correo,Password,Tipo){
   this->Cont = Cont;
 }
+
 Supervisor::~Supervisor(){
+}
+
+int Supervisor::getCont(){
+	return Cont;
 }
 
 string Supervisor::toString(){

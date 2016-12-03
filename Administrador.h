@@ -11,6 +11,7 @@ class Administrador: public Usuarios{
 		string Fecha;
 	public:
 		Administrador(string,string,string,string,string);
+		string getFecha();
 		virtual ~Administrador();
 		virtual string toString();
 };

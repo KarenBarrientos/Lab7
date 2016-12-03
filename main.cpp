@@ -6,6 +6,9 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <fstream>
+#include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -14,7 +17,7 @@ int MenuManager();
 int MenuIntern();
 
 int main(){
-
+	string text="";
 	vector <Usuarios*> users;
 	int opcion = 0;
 	string nom_user = "admin";
@@ -67,6 +70,9 @@ int main(){
 		if(tipo == "Admin"){
 			while((opcion = MenuAdmin()) != 3){
 					if(opcion==1){
+						stringstream ss;
+						ofstream archivo;
+						archivo.open("Users.txt");
 						string NomUserAdmin = "";
 						string CorreoUserAdmin = "";
 						string PassUserAdmin = "";
@@ -78,7 +84,7 @@ int main(){
 						cin >> CorreoUserAdmin;
 						cout << endl << "Ingrese contraseña: ";
 						cin >> PassUserAdmin;
-						cout << endl << "Ingrese el tipo usuario |1-Manager , 2-Intern , 3-Supervisor|: " << endl;
+						cout << endl << "Ingrese el tipo usuario |1-Manager , 2-Intern , 3-Supervisor|: ";
 						cin >> Tip_user;
 
 						if(Tip_user > 3 || Tip_user <= 0){
@@ -127,10 +133,40 @@ int main(){
 								cout << endl << "Supervisor agregado :D";
 							}
 						}
+
+						for (int i = 0; i < users.size(); ++i){
+							Supervisor* supervisores = dynamic_cast<Supervisor*>(users.at(i));
+							Administrador* administradores = dynamic_cast<Administrador*>(users.at(i));
+							Manager* managers = dynamic_cast<Manager*>(users.at(i));
+							Intern* interns = dynamic_cast<Intern*>(users.at(i));
+							
+							if(supervisores!=NULL){
+								text+=supervisores->toString();
+							}
+							else 
+								if(administradores!=NULL){
+								text+=administradores->toString();
+							}
+							else 
+								if(managers != NULL){
+								text+=managers->toString();
+							}
+							else 
+								if(interns != NULL){
+								text+=interns->toString();
+							}
+						}
+						archivo.open("Users.txt");
+						archivo << text;
+						archivo.close();
+
 					} // fin if
 
 					if(opcion==2){
 						int eliminar = 0;
+						stringstream ss;
+						ofstream archivo;
+						archivo.open("Users.txt");
 						cout<<"***** ELIMINAR USUARIO *****"<<endl;
 						cout << endl << "Ingrese posicion a eliminar: " << endl;
 						for (int i = 0; i < users.size(); ++i){
@@ -146,6 +182,33 @@ int main(){
 							users.erase(users.begin() + eliminar);
 							cout << endl << "Usuario eliminado";
 						}
+						archivo.open("Users.txt");
+						for (int i = 0; i < users.size(); ++i){
+							Supervisor* supervisores = dynamic_cast<Supervisor*>(users.at(i));
+							Administrador* administradores = dynamic_cast<Administrador*>(users.at(i));
+							Manager* managers = dynamic_cast<Manager*>(users.at(i));
+							Intern* interns = dynamic_cast<Intern*>(users.at(i));
+							
+							if(supervisores!=NULL){
+								text+=supervisores->toString();
+							}
+							else 
+								if(administradores!=NULL){
+								text+=administradores->toString();
+							}
+							else 
+								if(managers != NULL){
+								text+=managers->toString();
+							}
+							else 
+								if(interns != NULL){
+								text+=interns->toString();
+							}
+						}
+						
+						archivo << text;
+						archivo.close();
+
 					}
 
 					if(opcion==3){
@@ -162,7 +225,8 @@ int main(){
 						string NomUserAdmin = "";
 						string CorreoUserAdmin = "";
 						string PassUserAdmin = "";
-
+						stringstream ss;
+						ofstream archivo;
 						cout << endl << "Ingrese nombre: ";
 						cin >> NomUserAdmin;
 						cout << endl << "Ingrese correo: ";
@@ -186,6 +250,8 @@ int main(){
 							} else 
 							// PARA INTERN
 							if(Tip_user == 2){
+								stringstream ss;
+								ofstream archivo;
 								int dias = 0;
 								string Tip_user2="";
 								Tip_user2="Intern";
@@ -201,10 +267,39 @@ int main(){
 								} 
 							} 
 						}
+						archivo.open("Users.txt");
+						for (int i = 0; i < users.size(); ++i){
+							Supervisor* supervisores = dynamic_cast<Supervisor*>(users.at(i));
+							Administrador* administradores = dynamic_cast<Administrador*>(users.at(i));
+							Manager* managers = dynamic_cast<Manager*>(users.at(i));
+							Intern* interns = dynamic_cast<Intern*>(users.at(i));
+							
+							if(supervisores!=NULL){
+								text+=supervisores->toString();
+							}
+							else 
+								if(administradores!=NULL){
+								text+=administradores->toString();
+							}
+							else 
+								if(managers != NULL){
+								text+=managers->toString();
+							}
+							else 
+								if(interns != NULL){
+								text+=interns->toString();
+							}
+						}
+						archivo.open("Users.txt");
+						archivo << text;
+						archivo.close();
+
 					} // fin if 1
 
 					if(opcion==2){ 
 						int eliminar = 0;
+						stringstream ss;
+						ofstream archivo;
 						cout << endl << endl << "Ingrese posicion a eliminar:" << endl << endl;
 						for (int i = 0; i < users.size(); ++i){
 							if(i == 0){
@@ -231,7 +326,33 @@ int main(){
 								cout << endl << "Usuario eliminado";
 							}
 						}
-						break;
+
+						for (int i = 0; i < users.size(); ++i){
+							Supervisor* supervisores = dynamic_cast<Supervisor*>(users.at(i));
+							Administrador* administradores = dynamic_cast<Administrador*>(users.at(i));
+							Manager* managers = dynamic_cast<Manager*>(users.at(i));
+							Intern* interns = dynamic_cast<Intern*>(users.at(i));
+							
+							if(supervisores!=NULL){
+								text+=supervisores->toString();
+							}
+							else 
+								if(administradores!=NULL){
+								text+=administradores->toString();
+							}
+							else 
+								if(managers != NULL){
+								text+=managers->toString();
+							}
+							else 
+								if(interns != NULL){
+								text+=interns->toString();
+							}
+						}
+						archivo.open("Users.txt");
+						archivo << text;
+						archivo.close();
+
 					} // fin if 2
 					if(opcion==3){
 						cout << endl << "Saliendo..." << endl;
@@ -244,6 +365,8 @@ int main(){
 		if(tipo == "Intern"){
 			while((opcion = MenuIntern()) != 3){
 					if(opcion==1){ 
+						stringstream ss;
+						ofstream archivo;
 						for (int i = 0; i < users.size(); ++i){
 							if(i == 0){
 							} else 
@@ -261,6 +384,9 @@ int main(){
 					if(opcion==2){ 
 						// ELIMINAR
 						int eliminar = 0;
+						stringstream ss;
+						ofstream archivo;
+						string text="";
 						cout << endl << endl << "Ingrese posicion a eliminar" << endl;
 						for (int i = 0; i < users.size(); ++i){
 							if(i == 0){
@@ -288,6 +414,34 @@ int main(){
 							}
 							
 						}
+
+						for (int i = 0; i < users.size(); ++i){
+							Supervisor* supervisores = dynamic_cast<Supervisor*>(users.at(i));
+							Administrador* administradores = dynamic_cast<Administrador*>(users.at(i));
+							Manager* managers = dynamic_cast<Manager*>(users.at(i));
+							Intern* interns = dynamic_cast<Intern*>(users.at(i));
+							
+							if(supervisores!=NULL){
+								text+=supervisores->toString();
+							}
+							else 
+								if(administradores!=NULL){
+								text+=administradores->toString();
+							}
+							else 
+								if(managers != NULL){
+								text+=managers->toString();
+							}
+							else 
+								if(interns != NULL){
+								text+=interns->toString();
+							}
+						}
+						archivo.open("Users.txt");
+						archivo << text;
+						archivo.close();
+
+
 					}
 					if(opcion==3){
 						cout << endl << "Saliendo..." << endl;
@@ -297,10 +451,12 @@ int main(){
 			}
 		} 
 
-		cout << endl << "SALIR" << endl << "1. Si" << endl << "2. No" << endl << endl;
+		cout << endl << "Esta seguro que desea salir? |1- si , 2- no" <<endl;
 		cin >> Opp;
 	}
-
+	for (int i = 0; i < users.size(); ++i){
+		delete users[i];
+	}
 
 	return 0;
 }

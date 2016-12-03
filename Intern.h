@@ -11,6 +11,7 @@ class Intern: public Usuarios{
 		int Num_Dias;
 	public:
 		Intern(string,string,string,string,int);
+		int getNum_Dias();
 		virtual ~Intern();
 		virtual string toString();
 };
